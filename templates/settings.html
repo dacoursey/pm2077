@@ -1,0 +1,108 @@
+{{define "content"}}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header" data-background-color="purple">
+	                     <h4 class="title">{{.Title}}</h4>
+						<p class="category">Reboot three times and then...</p>
+	                </div>
+	                <div class="card-content">
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <a href="/notifications">
+                                            <i class="material-icons">announcement</i>
+                                            System Notifications
+                                        </a>
+
+                                        <p>
+                                            <small>
+                                                System wide broadcast messages can be managed here.  For 
+                                                example, if the zombie apocalypse started today, you could 
+                                                display a message that tells everyone to immediately go to the cafeteria.
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <a href="/users">
+                                            <i class="material-icons">wc</i>
+                                            Application Users
+                                        </a>
+
+                                        <p>
+                                            <small>
+                                                Users are the weakest link! <br /><br /><br />
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <a href="/resources">
+                                            <i class="material-icons">question_answer</i>
+                                            Internal Resources
+                                        </a>
+
+                                        <p>
+                                            <small>
+                                                Manage links to internal company resources.  These 
+                                                resources might even make the employees smarter.
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <a href="/backup">
+                                            <i class="material-icons">backup</i>
+                                            System Backup
+                                        </a>
+
+                                        <p>
+                                            <small>
+                                                Make sure to perform daily backups.  Just in case the 
+                                                company gets hit by ransomware.  If you don’t do backups, 
+                                                make sure you learn how to use Bitcoin.
+                                            </small>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{end}}

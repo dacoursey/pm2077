@@ -1,0 +1,167 @@
+{{define "content"}}
+
+<div class="content">
+	<div class="container-fluid">
+        
+    	<div class="row">
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="red">
+                        <i class="material-icons">info_outline</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Fixed Issues</p>
+                        <h3 class="title">75</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">local_offer</i> Tracked from Github
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="orange">
+                        <i class="material-icons">content_paste</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Active Projects</p>
+                        <h3 id="projectCount" class="title">0</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">date_range</i> Last 24 Hours
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="green">
+                        <i class="material-icons">insert_emoticon</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Happy Customers</p>
+                        <h3 id="happyCount" class="title">0</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">thumb_up</i> Happy, Happy, Happy
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="blue">
+                        <i class="material-icons">assignment_turned_in</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Completed Task</p>
+                        <h3 id="taskCount" class="title">0</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">assignment</i> Slackers!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="purple">
+                        <h4 class="title">Internal Resources</h4>
+                        <p class="category">Enrich your life with company documents and resources.</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table table-hover">
+                             <tbody id="resourceList"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+             <div class="col-lg-6 col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="orange">
+                        <h4 class="title">Your Open Task</h4>
+                        <p class="category">Get er Done!</p>
+                    </div>
+                    <div class="card-content table-responsive">
+
+                        <a id="myTask" name="myTask" href="mytask">View all your completed and open task.</a>
+
+                        <table class="table table-hover">
+                             <tbody id="taskList"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+	$(document).ready(function(){
+
+		$.getJSON( "/dashboard/numberofprojects", function( data ) {
+            var x = 0;
+            $.each( data, function( key, val ) {
+                x = val;
+			});
+			$("#projectCount").text(x);
+		});
+
+        $.getJSON( "/dashboard/numberofhappy", function( data ) {
+            var x = 0;
+            $.each( data, function( key, val ) {
+                x = val;
+			});
+			$("#happyCount").text(x);
+		});
+
+        $.getJSON( "/dashboard/completedtask", function( data ) {
+            var x = 0;
+            $.each( data, function( key, val ) {
+                x = val;
+			});
+			$("#taskCount").text(x);
+		});
+
+        $.getJSON( "/dashboard/resources", function( data ) {
+			$.each( data, function( key, val ) {
+				$.each(val, function (i, v){
+                    $("<tr>", {
+				        html: '<td><a href="' + val[i].url + '" target="_blank">' + val[i].title + '</a></td>'
+			        }).appendTo("#resourceList");
+				});
+			});
+		});
+
+        $.getJSON( "/dashboard/tasks", function( data ) {
+			$.each( data, function( key, val ) {
+				$.each(val, function (i, v){
+                    $("<tr>", {
+				        html: '<td>' + val[i].title + '</td>'
+			        }).appendTo("#taskList");
+                    $("#myTask").attr("href", "/mytask/" + val[i].userId)
+				});
+			});
+		});
+
+    });
+
+</script>
+
+{{end}}

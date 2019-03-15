@@ -1,0 +1,50 @@
+{{define "content"}}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header" data-background-color="purple">
+	                     <h4 class="title">{{.Title}}</h4>
+						<p class="category">Who is this?</p>
+	                </div>
+	                <div class="card-content">
+                        <form>
+                            <div class="row">
+	                            <div class="col-md-6">
+									<div class="form-group label-floating">
+										<label class="control-label">First Name</label>
+										<input type="text" class="form-control" disabled value="{{.Object.FName}}">
+									</div>
+	                            </div>
+	                            <div class="col-md-6">
+									<div class="form-group label-floating">
+										<label class="control-label">Last Name</label>
+										<input type="text" class="form-control" disabled value="{{.Object.LName}}">
+									</div>
+	                            </div>
+	                        </div>
+
+                            <div class="row">
+	                            <div class="col-md-6">
+									<div class="form-group label-floating">
+										<label class="control-label">Email</label>
+										<input type="text" class="form-control" disabled value="{{.Object.Email}}">
+									</div>
+	                            </div>
+                            </div>
+
+                            <a href="/contacts" class="btn btn-primary pull-right">Back to the List</a>
+                            <div class="clearFix"></div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{end}}

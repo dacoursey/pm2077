@@ -1,0 +1,48 @@
+{{define "content"}}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="purple">
+                        <h4 class="title">{{.Title}}</h4>
+                        <p class="category">We are resource heavy!</p>
+                    </div>
+                    <div class="card-content table-responsive">
+
+                        <a href="/resource/create" class="btn btn-primary pull-right">Create</a>
+
+                        <table class="table">
+                            <thead class="text-primary">
+                                <th>Title</th>
+                                <th>URL</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </thead>
+                            <tbody>
+                                {{range .Objects}}
+                                <tr>
+                                    <td>{{.Title}}</td>
+                                    <td><a href="{{.URL}}" target="_blank">{{.URL}}</a></td>
+                                    <td><a href="/resource/{{.ID}}">Edit</a></td>
+                                    <td><a href="/resource/delete/{{.ID}}">Delete</a></td>
+                                </tr>
+                                {{else}}
+                                <tr>
+                                    <td colspan="3">
+                                        Beep, beep, beep, no data found.
+                                    </td>
+                                </tr>
+                                {{end}}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{{end}}

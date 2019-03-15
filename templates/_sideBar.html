@@ -1,0 +1,52 @@
+<div class="sidebar" data-color="purple" data-image="/public/img/saltLogo.png">
+
+    <div class="logo">
+        <a href="/dashboard" class="simple-text">Desalinator</a>
+    </div>
+
+    <div class="sidebar-wrapper">
+        <ul class="nav">
+            <li class="{{ if eq .Active "Dashboard" }} active {{end}}">
+                <a href="/dashboard">
+                    <i class="material-icons">dashboard</i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
+            <li class="{{ if eq .Active "Contact" }} active {{end}}">
+                <a href="/contacts">
+	                <i class="material-icons">person</i>
+	                <p>Contacts</p>
+	            </a>
+            </li>
+            <li class="{{ if eq .Active "Project" }} active {{end}}">
+                <a href="/projects">
+	                <i class="material-icons">content_paste</i>
+	                <p>Projects</p>
+	            </a>
+            </li>
+            {{ if eq .UserRole "PM" }}
+                <li class="{{ if eq .Active "Task" }} active {{end}}">
+                    <a href="/tasks">
+                        <i class="material-icons">assignment</i>
+                        <p>Project Task</p>
+                    </a>
+                </li>
+            {{end}}
+            <li class="{{ if eq .Active "Customer" }} active {{end}}">
+                <a href="/customers">
+	                <i class="material-icons">folder_shared</i>
+                    <p>Customers</p>
+	                </a>
+            </li>
+            {{ if eq .UserRole "Admin" }}
+                <li class="{{ if eq .Active "Settings" }} active {{end}}">
+                    <a href="/settings">
+                        <i class="material-icons">settings</i>
+                        <p>Settings</p>
+                    </a>
+                </li>
+            {{end}}
+        </ul>
+    </div>
+
+</div>

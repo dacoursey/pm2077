@@ -1,0 +1,48 @@
+{{define "content"}}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="purple">
+                        <h4 class="title">{{.Title}}</h4>
+                        <p class="category">We will click the link!</p>
+                    </div>
+                    <div class="card-content table-responsive">
+
+                        <a href="/user/create" class="btn btn-primary pull-right">Create</a>
+
+                        <table class="table">
+                            <thead class="text-primary">
+                                <th>User Name</th>
+                                <th>Role</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </thead>
+                            <tbody>
+                                {{range .Objects}}
+                                <tr>
+                                    <td>{{.Username}}</td>
+                                    <td>{{.Role}}</td>
+                                    <td><a href="/user/{{.ID}}">Edit</a></td>
+                                    <td><a href="/user/delete/{{.ID}}">Delete</a></td>
+                                </tr>
+                                {{else}}
+                                <tr>
+                                    <td colspan="3">
+                                        No application users found.  Weird how did you get here?
+                                    </td>
+                                </tr>
+                                {{end}}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{{end}}

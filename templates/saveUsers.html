@@ -1,0 +1,85 @@
+{{define "content"}}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header" data-background-color="purple">
+	                    <h4 class="title">{{.Title}}</h4>
+					    <p class="category">Top notch user right here.</p>
+	                </div>
+	                <div class="card-content">
+                        <form id="frmUser" name="frmUser" action="/user/save" method="POST">
+                            <div class="row">
+	                            <div class="col-md-4">
+									<div class="form-group label-floating">
+
+                                        <label class="control-label">User Name</label>
+                                        <input id="Username" name="Username" type="text" class="form-control" value="{{.User.Username}}">
+
+									</div>
+	                            </div>
+                                <div class="col-md-4">
+									<div class="form-group label-floating">
+
+                                        <label class="control-label">Password</label>
+                                        <input id="Password" name="Password" type="password" class="form-control" value="{{.User.Password}}">
+
+									</div>
+	                            </div>
+	                            <div class="col-md-4">
+									<div class="form-group label-floating">
+										
+                                        <label class="control-label">Role</label>
+                                        <select id="RoleID" name="RoleID" class="form-control">
+                                            {{ $roleName := .User.Role }}
+                                            {{range .Roles}}
+                                                <option value="{{.ID}}" {{ if eq .Name $roleName }} selected {{end}} >{{.Name}}</option>
+                                            {{end}}
+                                        </select>
+
+									</div>
+	                            </div>
+                            </div>
+
+                            <input id="id" name="id" type="hidden" value="{{.User.ID}}">
+                            
+                            <button id="save" name="save" type="submit" class="btn btn-primary pull-right">Save</button>
+                            <a href="/users" class="btn btn-primary pull-right">Cancel</a>
+                            <div class="clearFix"></div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var urlParams = new URLSearchParams(window.location.search);
+
+    if (urlParams.has('err'))
+    {
+
+        $.notify({
+            icon: "notifications",
+            message: urlParams.get('err')
+
+        },{
+            type: "danger",
+            timer: 4000,
+            placement: {
+                from: "top",
+                align: "center"
+            }
+        });
+
+    }
+
+</script>
+
+{{end}}

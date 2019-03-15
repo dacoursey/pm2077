@@ -1,0 +1,50 @@
+{{define "content"}}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header" data-background-color="purple">
+	                     <h4 class="title">{{.Title}}</h4>
+						<p class="category">A little bit of detail about your project</p>
+	                </div>
+	                <div class="card-content">
+                        <form>
+                            <div class="row">
+	                            <div class="col-md-6">
+									<div class="form-group label-floating">
+										<label class="control-label">Project Name</label>
+										<input type="text" class="form-control" disabled value="{{.Object.Name}}">
+									</div>
+	                            </div>
+	                            <div class="col-md-6">
+									<div class="form-group label-floating">
+										<label class="control-label">Start Date</label>
+										<input type="text" class="form-control" disabled value="{{.Object.StartDate}}">
+									</div>
+	                            </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+									<div class="form-group label-floating">
+										<label class="control-label">Hours</label>
+										<input type="text" class="form-control" disabled value="{{.Object.Hours}}">
+									</div>
+	                            </div>
+	                        </div>
+
+                            <a href="/projects" class="btn btn-primary pull-right">Back to the List</a>
+                            <div class="clearFix"></div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{end}}

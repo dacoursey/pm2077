@@ -1,0 +1,52 @@
+{{define "content"}}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="purple">
+                        <h4 class="title">{{.Title}}</h4>
+                        <p class="category">Crack that whip!!</p>
+                    </div>
+                    <div class="card-content table-responsive">
+
+                        <a href="/project/create" class="btn btn-primary pull-right">Create</a>
+
+                        <table class="table">
+                            <thead class="text-primary">
+                                <th>Cust ID</th>
+                                <th>Name</th>
+                                <th>Start Date</th>
+                                <th>Hours</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </thead>
+                            <tbody>
+                                {{range .Objects}}
+                                <tr>
+                                    <td>{{.CustID}}</td>
+                                    <td>{{.Name}}</td>
+                                    <td>{{.StartDate}}</td>
+                                    <td>{{.Hours}}</td>
+                                    <td><a href="/project/{{.ID}}">Edit</a></td>
+                                    <td><a href="/project/delete/{{.ID}}">Delete</a></td>
+                                </tr>
+                                {{else}}
+                                <tr>
+                                    <td colspan="5">
+                                        What no projects?  What are your teams working on?
+                                    </td>
+                                </tr>
+                                {{end}}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{end}}

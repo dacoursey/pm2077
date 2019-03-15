@@ -1,0 +1,58 @@
+{{define "content"}}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header" data-background-color="purple">
+	                     <h4 class="title">{{.Title}}</h4>
+						<p class="category">Won't you back that thing up..</p>
+	                </div>
+	                <div class="card-content">
+
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <form action="/backup/start" method="POST">
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <select id="backupType" name="backupType" class="form-control">
+                                                    <option value="full-backup.sh">Full Backup</option>
+                                                    <option value="partial-backup.sh">Partial Backup</option>
+                                                    <option value="purge-backup.sh">Purge Old Backups</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <button id="start" name="start" type="submit" class="btn btn-primary" style="margin:0px;">Start Backup</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <hr class="text-center" />
+                                <h4>Backup Results:</h4>
+                                {{.Output}}
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{end}}

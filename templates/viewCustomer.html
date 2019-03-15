@@ -1,0 +1,41 @@
+{{define "content"}}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header" data-background-color="purple">
+	                     <h4 class="title">{{.Title}}</h4>
+						<p class="category">Awesome details about your customer</p>
+	                </div>
+	                <div class="card-content">
+                        <form>
+                            <div class="row">
+	                            <div class="col-md-6">
+									<div class="form-group label-floating">
+										<label class="control-label">Customer Name</label>
+										<input type="text" class="form-control" disabled value="{{.Object.Name}}">
+									</div>
+	                            </div>
+	                            <div class="col-md-6">
+									<div class="form-group label-floating">
+										<label class="control-label">PoC</label>
+										<input type="text" class="form-control" disabled value="{{.Object.POC}}">
+									</div>
+	                            </div>
+	                        </div>
+
+                            <a href="/customers" class="btn btn-primary pull-right">Back to the List</a>
+                            <div class="clearFix"></div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{end}}

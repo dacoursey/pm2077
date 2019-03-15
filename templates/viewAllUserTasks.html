@@ -1,0 +1,60 @@
+{{define "content"}}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="purple">
+                        <h4 class="title">{{.Title}}</h4>
+                        <p class="category">Bucket of task</p>
+                    </div>
+                    <div class="card-content table-responsive">
+
+                        <table class="table">
+                            <thead class="text-primary">
+                                <th>Task</th>
+                                <th>Assinged To</th>
+                                <th>Project</th>
+                                <th>Completed</th>
+                                <th>Attachment</th>
+                            </thead>
+                            <tbody>
+                                {{range .Objects}}
+                                <tr>
+                                    <td>{{.Title}}</td>
+                                    <td>{{.UserName}}</td>
+                                    <td>{{.ProjectName}}</td>
+                                    <td>
+                                        {{if eq .IsCompleted 1}}
+                                            <i class="material-icons">check_circle</i>
+                                        {{else}}
+                                            &nbsp;
+                                        {{end}}
+                                    </td>
+                                    <td>
+                                        {{ $length := len .AttachmentPath }} {{ if eq $length 0 }}
+                                            No Attachment
+                                        {{else}}
+                                            <a href="/task/attachment?path={{.AttachmentPath}}">Download</a>
+                                        {{end}}
+                                    </td>
+                                </tr>
+                                {{else}}
+                                <tr>
+                                    <td colspan="3">
+                                        Nothing to do.  Go home and play some xBox.
+                                    </td>
+                                </tr>
+                                {{end}}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+{{end}}

@@ -1,0 +1,44 @@
+{{define "content"}}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header" data-background-color="purple">
+	                    <h4 class="title">{{.Title}}</h4>
+					    <p class="category">Rogue One transmitting..</p>
+	                </div>
+	                <div class="card-content">
+                        <form id="frmNotificaiton" name="frmNotification" action="/notification/save" method="POST">
+                            <div class="row">
+	                            <div class="col-md-6">
+									<div class="form-group label-floating">
+										<label class="control-label">Title</label>
+										<input id="title" name="title" type="text" class="form-control" value="{{.Object.Title}}">
+									</div>
+	                            </div>
+	                            <div class="col-md-6">
+									<div class="form-group label-floating">
+										<label class="control-label">Message</label>
+										<input id="message" name="message" type="text" class="form-control" value="{{.Object.Message}}">
+									</div>
+	                            </div>
+                            </div>
+
+                            <input id="id" name="id" type="hidden" value="{{.Object.ID}}">
+                            
+                            <button id="save" name="save" type="submit" class="btn btn-primary pull-right">Save</button>
+                            <a href="/notifications" class="btn btn-primary pull-right">Cancel</a>
+                            <div class="clearFix"></div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{end}}

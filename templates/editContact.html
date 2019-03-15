@@ -1,0 +1,56 @@
+{{define "content"}}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+
+                    <div class="card-header" data-background-color="purple">
+	                    <h4 class="title">{{.Title}}</h4>
+					    <p class="category">insert something funny here..</p>
+	                </div>
+	                <div class="card-content">
+                        <form id="frmContact" name="frmContact" action="/contact/save" method="POST">
+                            <div class="row">
+                                <div class="col-md-6">
+									<div class="form-group label-floating">
+										<label class="control-label">Cust ID</label>
+										<input id="custid" name="custid" type="text" class="form-control" value="{{.Object.CustID}}">
+									</div>
+	                            </div>
+	                            <div class="col-md-6">
+									<div class="form-group label-floating">
+										<label class="control-label">First Name</label>
+										<input id="fname" name="fname" type="text" class="form-control" value="{{.Object.FName}}">
+									</div>
+	                            </div>
+	                            <div class="col-md-6">
+									<div class="form-group label-floating">
+										<label class="control-label">Last Name</label>
+										<input id="lname" name="lname" type="text" class="form-control" value="{{.Object.LName}}">
+									</div>
+	                            </div>
+	                            <div class="col-md-6">
+									<div class="form-group label-floating">
+										<label class="control-label">Email</label>
+										<input id="email" name="email" type="text" class="form-control" value="{{.Object.Email}}">
+									</div>
+	                            </div>
+                            </div>
+
+                            <input id="id" name="id" type="hidden" value="{{.Object.ID}}">
+                            
+                            <button id="save" name="save" type="submit" class="btn btn-primary pull-right">Save</button>
+                            <a href="/contacts" class="btn btn-primary pull-right">Cancel</a>
+                            <div class="clearFix"></div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{end}}
